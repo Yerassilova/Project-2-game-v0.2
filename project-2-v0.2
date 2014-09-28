@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<!--Liliya Yerassilova
+    Introduction to Programming
+	Project 1 - My Web Page-->
+	
+  <head>
+      <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+      <meta name="keywords"           content="game, version 0.2"/>
+      <meta name="author"             content="Liliya Yerassilova"/> 
+      <title>Game</title>
+	  
+	  <script type="text/javascript">
+	    function btn_Goclick() {
+		   var txtCommandElement = document.getElementById("txtCommand");
+		   var userCommand = txtCommandElement.value;
+		   var firstQ = "hello";
+		   var secondQ = "I am fine";
+
+        	   
+		 } 
+	  </script>
+	  
+  </head>
+  <body>
+     Question:
+	 <br>
+	 <input type="text"
+	       id="txtCommand"
+		   name="txtCommand">
+		   
+	 <input type="button"
+	         value="Go"
+			 onclick="btn_Goclick();" />			 
+	<br>
+	<br>
+	  Answer:
+	  <br>
+	   <textarea rows="8" cols="20" id="mainText"></textarea>
+	   
+			 
+	
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </body>  
+</html>
