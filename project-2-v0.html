@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<!--Liliya Yerassilova
+    Introduction to Programming
+	Project 2 - Game v-0.2-->
+	
+  <head>
+      <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+      <meta name="keywords"           content="game, version 0.2"/>
+      <meta name="author"             content="Liliya Yerassilova"/> 
+      <title>Game</title>
+	  
+	  <script type="text/javascript">
+	    function btn_Goclick() {
+		   var txtCommandElement = document.getElementById("txtCommand").value;
+		   
+		 if (txtCommandElement == "North") {
+		     document.getElementById("mainText").value += "You cannot get inside, the gates are locked.\n\n";
+			} else {
+			    if (txtCommandElement == "South") {
+				    document.getElementById("mainText").value += "There is empty field in front of you\n\n";
+				   } else {
+				       if (txtCommandElement == "West") {
+					       document.getElementById("mainText").value += "There is a key on the ground that you need to open the gates. But you cannot see it. Switch on the lights first\n\n";
+						 } else {
+						     if (txtCommandElement == "East") {							
+				                 document.getElementById("mainText").value += "Good, now you can SWITCH the ligths ON.\n\n";
+							}
+					    }								 
+				   }
+		      }
+		}
+				 
+		function btn_command_North() {
+           document.getElementById("mainText").value += "You cannot get inside, the gates are locked.\n\n";
+		   }
+		   
+		function btn_command_South() {
+		    document.getElementById("mainText").value += "There is empty field in front of you\n\n";
+		   }
+		   
+		function btn_command_West() {
+		    document.getElementById("mainText").value += "There is a key on the ground that you need to open the gates. But you cannot see it. Switch on the lights first\n\n";			
+		   }
+		
+		function btn_command_East() {
+           document.getElementById("mainText").value += "Good, now you can SWITCH the ligths ON.\n\n";
+		   }
+		   
+        		
+		   
+              
+		   
+	  </script>	  
+  </head>
+  <body>
+    <h1>
+	  Game Name
+	</h1>
+	<br>
+	If you want to write to me:
+                  <a href="mailto:liliya-er@mail.ru?Subject=My%20message">
+                      Click here</a>
+	<br><br>
+	   <textarea rows="15" cols="50" id="mainText"> You are staying in front of a mansion's gates. 
+The gates are locked. It is dark and you need to switch lights on. The lights are on the right side a few steps away.
+
+</textarea>
+	<br><br>
+	<input type="button"
+	       value="North"
+		   onclick="btn_command_North();" />
+
+    <input type="button"
+	       value="South"
+		   onclick="btn_command_South();" />
+
+    <input type="button"
+	       value="West"
+		   onclick="btn_command_West();" />
+
+    <input type="button"
+	       value="East"
+		   onclick="btn_command_East();" />
+		   <br><br>
+     Your command:
+	<br>
+	<input type="text"	       
+	       id="txtCommand"
+		   name="txtCommand">
+		   
+	<input type="button"
+	       value="Go"
+		   onclick="btn_Goclick();" />
+ 
+   		   
+		   
+
+	  
+	   
+			 
+	
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </body>  
+</html>
