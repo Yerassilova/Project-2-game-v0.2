@@ -11,48 +11,71 @@
         <title>Game</title>
 	  
 	    <script type="text/javascript">
-	  
-	       function btn_Goclick() {
-		      var message = document.getElementById("txtCommand").value;		   
-		    if (message == "North") {
-		       document.getElementById("mainText").value += "You cannot get inside, the gates are locked.\n\n";
-			   } else {
-			       if (message == "South") {
-				      document.getElementById("mainText").value += "There is empty field in front of you\n\n";
-				      } else {
-				          if (message == "West") {
-					         document.getElementById("mainText").value += "There is the key on the ground that you need to open the gates." +
-						                                                 "But you cannot see it. Switch on the lights first.\n\n";
-						    } else {
-						        if (message == "East") {							
-				                   document.getElementById("mainText").value += "Good, now you can SWITCH the ligths ON.\n\n";
-							 }
-					      }								 
-				     }
-		         }
-		    }
-				 
-		   function btn_command_North() {
-                 document.getElementById("mainText").value += "You cannot get inside, the gates are locked.\n\n";
-		    }
+	       var curLoc = 0;
+		   var hasVisitedRoom1 = false;
+		   var hasVisitedRoom2 = false;
+		   var hasVisitedRoom3 = false;
+		   var hasVisitedRoom4 = false;
+		   var hasVisitedRoom5 = false;
+		   var score = score;
 		   
-		   function btn_command_South() {
-		        document.getElementById("mainText").value += "There is empty field in front of you\n\n";
-		   }
-		   
-		   function btn_command_West() {
-		        document.getElementById("mainText").value += "There is the key on the ground that you need to open the gates." +
-			                                              "But you cannot see it. Switch on the lights first.\n\n";			
-		   }
-		
-		  function btn_command_East() {
-              document.getElementById("mainText").value += "Good, now you can SWITCH the lights ON.\n\n";
-		   }
-		   	
-      function btn_Score() {
-	      document.getElementById("scoreText").value += "5";
+		   function btn_go_North() {
+		    if (curLoc === 3) {
+			    curLoc = 0;
+			    dispmsg ("You are in room #0.\n\n");
+			} else {
+			    if (curLoc === 0) {
+				    curLoc = 1;
+					dispmsg ("you are in room #1.\n\n");					
+				} else {
+				    dispmsg ("You cannot go this way.\n\n");
+				}
+			}		   
+		 }
+		 
+		    function btn_go_South() {
+			 if (curLoc === 1) {
+			     curLoc = 0;
+				 dispmsg ("You are in room #0.\n\n");			 
+			 } else {
+			     if (curLoc === 0) {
+				     curLoc = 3;
+					 dispmsg ("You are in room #3.\n\n");
+				 } else {
+				    dispmsg ("You cannot go this way.\n\n");
+				}			
+		     }
+		}
+		    function btn_go_West() {
+		      if (curLoc === 4) {
+                  curLoc = 0;
+                  dispmsg ("You are in room #0.\n\n");
+			 } else {
+			    if (curLoc === 0) {
+				    curLoc = 2;
+					dispmsg ("You are in room #2.\n\n");
+			  } else {
+				    dispmsg ("You cannor go this way.\n\n");
+				  }									
+		}
+	} 
+		  function btn_go_East(){
+		    if (curLoc === 2) {
+			    curLoc = 0;
+				dispmsg ("You are in room #2.\n\n");
+			} else {
+			   if (curLoc === 0) {
+			       curLoc = 4;
+				   dispmsg ("You are in room #4.\n\n");
+			   }
+		    }
 		  }
 		  
+		  
+		  function dispmsg (msg) {
+		     var target = document.getElementById("mainText");
+			 target.value = msg + "\n" + target.value;		  
+		  }
 			
 	   </script>	 
        <style>
@@ -71,8 +94,7 @@
                   <a href="mailto:liliya-er@mail.ru?Subject=My%20message">
                       Click here</a>
 	  <br><br>
-	   <textarea rows="15" cols="50" id="mainText"> You are staying in front of a mansion's gates. 
-The gates are locked. It is dark and you need to switch lights on. The lights are on the right side a few steps away.
+	   <textarea rows="15" cols="50" id="mainText"> Room #0.
 
 </textarea>
     <div id="scorebox">
@@ -81,19 +103,19 @@ The gates are locked. It is dark and you need to switch lights on. The lights ar
 	<br><br>
 	<input type="button"
 	       value="North"
-		   onclick="btn_command_North();" />
+		   onclick="btn_go_North();" />
 
     <input type="button"
 	       value="South"
-		   onclick="btn_command_South();" />
+		   onclick="btn_go_South();" />
 
     <input type="button"
 	       value="West"
-		   onclick="btn_command_West();" />
+		   onclick="btn_go_West();" />
 
     <input type="button"
 	       value="East"
-		   onclick="btn_command_East();" />
+		   onclick="btn_go_East();" />
 		   
 	<input type="button"
 	       value="Score"
