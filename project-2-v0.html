@@ -12,12 +12,12 @@
 	  
 	    <script type="text/javascript">
 	       var curLoc = 0;
+		   var hasVisitedRoom0 = false;
 		   var hasVisitedRoom1 = false;
 		   var hasVisitedRoom2 = false;
 		   var hasVisitedRoom3 = false;
 		   var hasVisitedRoom4 = false;
-		   var hasVisitedRoom5 = false;
-		   var score = score;
+		   var score = 0;
 		   
 		   function btn_go_North() {
 		    if (curLoc === 3) {
@@ -76,6 +76,38 @@
 		     var target = document.getElementById("mainText");
 			 target.value = msg + "\n" + target.value;		  
 		  }
+		  
+		  function dispScore(showscore) {
+		      var targetscore = document.getElementById("scoretext");
+		      targetscore.value = score + targetscore.value;
+		  }
+		  
+		  function btn_Score() {
+		     			
+			  if (!hasVisitedRoom1) {
+			     score = score + 5;
+				 hasVisitedRoom1 = true;
+				 dispScore = score + targetscore.value;
+				 
+			}
+			
+			  if (!hasVisitedRoom2) {
+			     score = score + 5;
+				 hasVisitedRoom2 = true;
+			}
+			
+			  if (!hasVisitedRoom3) {
+			     score = score + 5;
+				 hasVisitedRoom3 = true;
+			}
+			
+			  if (!hasVisitedRoom4) {
+			     score = score + 5;
+				 hasVisitedRoom4 = true;
+			}
+			}
+			
+		 
 			
 	   </script>	 
        <style>
