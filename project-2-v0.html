@@ -55,7 +55,7 @@
 				    curLoc = 2;
 					dispmsg ("You are in room #2.\n\n");
 			  } else {
-				    dispmsg ("You cannor go this way.\n\n");
+				    dispmsg ("You cannot go this way.\n\n");
 				  }									
 		}
 	} 
@@ -67,6 +67,8 @@
 			   if (curLoc === 0) {
 			       curLoc = 4;
 				   dispmsg ("You are in room #4.\n\n");
+			   } else {
+			       dispmsg ("You cannot go this way.\n\n");
 			   }
 		    }
 		  }
@@ -77,34 +79,44 @@
 			 target.value = msg + "\n" + target.value;		  
 		  }
 		  
-		  function dispScore(showscore) {
-		      var targetscore = document.getElementById("scoretext");
-		      targetscore.value = score + targetscore.value;
-		  }
-		  
 		  function btn_Score() {
+		  
+		      if (!hasVisitedRoom0) {
+			     score = score + 5;
+				 hasVisitedRoom0 = true;
+				 dspScore(score).value;
+				 
+			}
 		     			
 			  if (!hasVisitedRoom1) {
 			     score = score + 5;
 				 hasVisitedRoom1 = true;
-				 dispScore = score + targetscore.value;
+				 dspScore(score).value;
 				 
 			}
 			
 			  if (!hasVisitedRoom2) {
 			     score = score + 5;
 				 hasVisitedRoom2 = true;
+				 dspScore(score).value;
 			}
 			
 			  if (!hasVisitedRoom3) {
 			     score = score + 5;
 				 hasVisitedRoom3 = true;
+				 dspScore(score).value;
 			}
 			
 			  if (!hasVisitedRoom4) {
 			     score = score + 5;
 				 hasVisitedRoom4 = true;
+				 dspScore(score).value;
 			}
+			}
+			
+			function dspScore(score) {
+			         score = score + 5;
+					 document.getElementById("scoreText").value = "Score:" + score;
 			}
 			
 		 
