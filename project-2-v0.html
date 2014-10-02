@@ -11,185 +11,169 @@
         <title>Game</title>
 	  
 	    <script type="text/javascript">
-	       var curLoc = 0;
-		   var hasVisitedRoom0 = false;
-		   var hasVisitedRoom1 = false;
-		   var hasVisitedRoom2 = false;
-		   var hasVisitedRoom3 = false;
-		   var hasVisitedRoom4 = false;
-		   var score = 0;
+	      var curLoc = 0;
+		    var hasVisitedRoom0 = false;
+		    var hasVisitedRoom1 = false;
+		    var hasVisitedRoom2 = false;
+		    var hasVisitedRoom3 = false;
+		    var hasVisitedRoom4 = false;
+		    var score = 0;
 		   
 		   function btn_go_North() {
 		    if (curLoc === 3) {
 			    curLoc = 0;
-			    dispmsg ("You are in room #0.\n\n");
-			} else {
-			    if (curLoc === 0) {
-				    curLoc = 1;
-					dispmsg ("you are in room #1.\n\n");					
-				} else {
-				    dispmsg ("You cannot go this way.\n\n");
-				}
-			}		   
-		 }
+			    dispmsg ("You are standing inside a mansion's hall. In the mansion there is a canary in a cage covered with" + "\n" + 
+                         "black cloth, so that it does not sing and you cannot hear it. Your aim is to find the bird and release" + "\n" + 
+						 "it. If it sings when flies away, you will become the happiest person."); // room #0
+			   } else {
+			       if (curLoc === 0) {
+				       curLoc = 1;
+					   dispmsg ("You entered a dark room with no windows, so you cannot see anything..."); // room #1					
+			         } else {
+				          dispmsg ("You cannot go this way.");
+				       }
+			     }		   
+		   }
 		 
 		    function btn_go_South() {
-			 if (curLoc === 1) {
-			     curLoc = 0;
-				 dispmsg ("You are in room #0.\n\n");			 
-			 } else {
-			     if (curLoc === 0) {
-				     curLoc = 3;
-					 dispmsg ("You are in room #3.\n\n");
-				 } else {
-				    dispmsg ("You cannot go this way.\n\n");
-				}			
-		     }
-		}
+			    if (curLoc === 1) {
+			        curLoc = 0;
+				    dispmsg ("You are standing inside a mansion's hall. In the mansion there is a canary in a cage covered with" + "\n" + 
+                             "black cloth, so that it does not sing and you cannot hear it. Your aim is to find the bird and release" + "\n" + 
+						     "it. If it sings when flies away, you will become the happiest person."); // room #0			 
+			     } else {
+			         if (curLoc === 0) {
+				         curLoc = 3;
+					     dispmsg ("You are in a big room, there is a grand piano in the middle of the room and nothing else."); // room #3
+				      } else {
+				            dispmsg ("You cannot go this way.");
+				         }			
+		        }
+		    }
+		    
 		    function btn_go_West() {
 		      if (curLoc === 4) {
                   curLoc = 0;
-                  dispmsg ("You are in room #0.\n\n");
-			 } else {
-			    if (curLoc === 0) {
-				    curLoc = 2;
-					dispmsg ("You are in room #2.\n\n");
-			  } else {
-				    dispmsg ("You cannot go this way.\n\n");
-				  }									
-		}
-	} 
+                  dispmsg ("You are standing inside a mansion's hall. In the mansion there is a canary in a cage covered with" + "\n" + 
+                           "black cloth, so that it does not sing and you cannot hear it. Your aim is to find the bird and release" + "\n" + 
+					       "it. If it sings when flies away, you will become the happiest person."); // room #0
+			      } else {
+			           if (curLoc === 0) {
+				           curLoc = 2;
+					       dispmsg ("You entered a living room, there is a table and an armchair in front of a chimney."); // room #2
+			           } else {
+				               dispmsg ("You cannot go this way.");
+				          }									
+		         }
+	      } 
+	      
 		  function btn_go_East(){
-		    if (curLoc === 2) {
-			    curLoc = 0;
-				dispmsg ("You are in room #2.\n\n");
-			} else {
-			   if (curLoc === 0) {
-			       curLoc = 4;
-				   dispmsg ("You are in room #4.\n\n");
-			   } else {
-			       dispmsg ("You cannot go this way.\n\n");
-			   }
+		     if (curLoc === 2) {
+			     curLoc = 0;
+		         dispmsg ("You are standing inside a mansion's hall. In the mansion there is a canary in a cage covered with" + "\n" + 
+                          "black cloth, so that it does not sing and you cannot hear it. Your aim is to find the bird and release" + "\n" + 
+						  "it. If it sings when flies away, you will become the happiest person."); // room #0
+			     } else {
+			          if (curLoc === 0) {
+			              curLoc = 4;
+				          dispmsg ("You have entered a kitchen."); // room #4
+			          } else {
+			               dispmsg ("You cannot go this way.");
+			              }
+		          }
 		    }
-		  }
 		  
 		  
 		  function dispmsg (msg) {
-		     var target = document.getElementById("mainText");
-			 target.value = msg + "\n" + target.value;		  
+		            checkScore();
+		            dspScore();
+		            var target = document.getElementById("mainText");
+			        target.value = msg + "\n\n" + target.value;		  
 		  }
 		  
-		  function btn_Score() {
-		  
-		      if (!hasVisitedRoom0) {
-			     score = score + 5;
-				 hasVisitedRoom0 = true;
-				 dspScore(score).value;
-				 
-			}
-		     			
-			  if (!hasVisitedRoom1) {
-			     score = score + 5;
-				 hasVisitedRoom1 = true;
-				 dspScore(score).value;
-				 
-			}
-			
-			  if (!hasVisitedRoom2) {
-			     score = score + 5;
-				 hasVisitedRoom2 = true;
-				 dspScore(score).value;
-			}
-			
-			  if (!hasVisitedRoom3) {
-			     score = score + 5;
-				 hasVisitedRoom3 = true;
-				 dspScore(score).value;
-			}
-			
-			  if (!hasVisitedRoom4) {
-			     score = score + 5;
-				 hasVisitedRoom4 = true;
-				 dspScore(score).value;
-			}
-			}
-			
-			function dspScore(score) {
+		  function checkScore() {
+		     if (curLoc === 0) {
+		         if (! hasVisitedRoom0) {	        
 			         score = score + 5;
-					 document.getElementById("scoreText").value = "Score:" + score;
+				     hasVisitedRoom0 = true;
+				    }
+		     }
+		     
+		     if (curLoc === 1) {			
+			      if (! hasVisitedRoom1) {			  
+			          score = score + 5;
+				      hasVisitedRoom1 = true;
+				   }
+				 }
+				 
+								 		
+			  if (curLoc === 2) {
+			     if (! hasVisitedRoom2) {
+			         score = score + 5;
+				     hasVisitedRoom2 = true;
+				   }
+				}
+				   
+				   
+			if (curLoc === 3) {
+				  if (! hasVisitedRoom3) {
+			          score = score + 5;
+				      hasVisitedRoom3 = true;
 			}
-			
-		 
-			
+			   }
+				 
+			if (curLoc === 4) {
+			    if (! hasVisitedRoom4) {
+			        score = score + 5;
+				    hasVisitedRoom4 = true;				 
+			}
+			   }
+			     }
+			     			
+			function dspScore() {			         
+					     document.getElementById("scoreText").value = "Score:" + score;
+			}
+						
 	   </script>	 
        <style>
-	     div {position: absolute;
-		      top: 135px;
-			  left: 480px;
-			 }
+	       div {position: absolute;
+		          top: 140px;
+			        left: 465px;
+			    }
 	   </style>     	  
-   </head>
-   <body>
-      <h1>
-	    Game Name
-	  </h1>
-	  <br>
-	  If you want to write to me:
+  </head>
+    <body>
+        <h1>
+	       Inside a Mansion
+	    </h1>
+	    <br>
+	       If you want to write to me:
                   <a href="mailto:liliya-er@mail.ru?Subject=My%20message">
                       Click here</a>
-	  <br><br>
-	   <textarea rows="15" cols="50" id="mainText"> Room #0.
-
-</textarea>
-    <div id="scorebox">
+	   <br><br>
+	   <textarea rows="15" cols="50" id="mainText"> You are standing inside a mansion's hall. In the mansion there is a canary in a cage covered with 
+black cloth, so that it does not sing and you cannot hear it. Your aim is to find the bird and release it. If it sings when flies away, 
+you will become the happiest person.
+       </textarea>
+     <div id="scorebox">
           <textarea rows="5" cols="8" id="scoreText"></textarea>	
-	</div>
-	<br><br>
-	<input type="button"
-	       value="North"
-		   onclick="btn_go_North();" />
+	 </div>
+	 <br><br>
+	    <input type="button"
+	           value="North"
+		       onclick="btn_go_North();" />
 
-    <input type="button"
-	       value="South"
-		   onclick="btn_go_South();" />
+       <input type="button"
+	          value="South"
+		      onclick="btn_go_South();" />
 
-    <input type="button"
-	       value="West"
-		   onclick="btn_go_West();" />
+       <input type="button"
+	          value="West"
+		      onclick="btn_go_West();" />
 
-    <input type="button"
-	       value="East"
-		   onclick="btn_go_East();" />
-		   
-	<input type="button"
-	       value="Score"
-		   onclick="btn_Score();" />
-		   <br><br>
-     Your command:
-	<br>
-	<input type="text"	       
-	       id="txtCommand"
-		   name="txtCommand">
-		   
-	<input type="button"
-	       value="Go"
-		   onclick="btn_Goclick();" />
+       <input type="button"
+	          value="East"
+		      onclick="btn_go_East();" />
  
-   		   
-		   
-
-	  
-	   
-			 
-	
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </body>  
+   </body>  
 </html>
